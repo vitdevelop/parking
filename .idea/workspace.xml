@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ae7477e6-20be-451b-9f40-aa59c04f2c3c" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="ae7477e6-20be-451b-9f40-aa59c04f2c3c" name="Default" comment="" />
     <ignored path="parking.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -592,7 +589,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="settings.github" />
+    <property name="settings.editor.selected.configurable" value="sshConsole" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
@@ -887,6 +884,11 @@
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SshConsoleOptionsProvider">
+    <option name="myEncoding" value="windows-1251" />
+    <option name="myConnectionType" value="DEPLOYMENT_SERVER" />
+    <option name="myConnectionId" value="c4db7124-1e0e-47ed-9c59-38c7cae56a2f" />
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -900,12 +902,12 @@
       <workItem from="1430216283207" duration="8754000" />
       <workItem from="1430233428984" duration="204000" />
       <workItem from="1430323952047" duration="6450000" />
-      <workItem from="1430331217453" duration="128000" />
+      <workItem from="1430331217453" duration="1121000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19601000" />
+    <option name="totallyTimeSpent" value="20594000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1028" height="772" extended-state="0" />
