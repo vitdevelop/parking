@@ -888,15 +888,15 @@
       <workItem from="1430216283207" duration="8754000" />
       <workItem from="1430233428984" duration="204000" />
       <workItem from="1430323952047" duration="6450000" />
-      <workItem from="1430331217453" duration="16705000" />
+      <workItem from="1430331217453" duration="17168000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36178000" />
+    <option name="totallyTimeSpent" value="36641000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1040" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1040" height="744" extended-state="7" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
