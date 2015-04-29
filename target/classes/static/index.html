@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html ng-app="parking">
+<html ng-app="parking" xmlns:margin-left="http://www.w3.org/1999/xhtml" xmlns:width="http://www.w3.org/1999/xhtml">
 	<head>
 		<title>Parking</title>
+		<script src="js/lib/lodash.js"></script>
 		<script src="js/lib/angular.js"></script>
 		<script src="js/lib/angular-locale_ro-md.js"></script>
 		<script src="js/app.js"></script>
@@ -19,11 +20,11 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-md-9 col-md-offset-3">
-					<table class="table table-bordered" style="width: 590px" ng-show="cars.length > 0">
+				<div class="col-md-10 col-md-offset-2">
+					<table class="table table-bordered" style="width: 640px" ng-show="cars.length > 0">
 						<thead>
 							<tr>
-								<th></th>
+								<th class="text-center"><input type="checkbox"  /></th>
 								<th class="text-center">Plate</th>
 								<th class="text-center">Color</th>
 								<th class="text-center">Entrace</th>
@@ -32,23 +33,30 @@
 						</thead>
 						<tbody>
 							<tr ng-class="{selecting: car.selected}" ng-repeat="car in cars">
-								<td><input type="checkbox" ng-model="car.selected" /></td>
+								<td ng-show="car.selected">
+									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">Delete</button>
+								</td>
+								<td>
+									<input type="checkbox" ng-model="car.selected" />
+								</td>
 								<td ng-bind="car.plate|limitTo:6|uppercase"></td>
 								<td ng-bind="car.color" ng-style="{color: car.color}"></td>
 								<td ng-bind="car.entrace|date:'dd-MMMM-yyyy HH:mm:ss'"></td>
 								<td ng-bind="car.price|currency:'&euro;'"></td>
 							</tr>
-							
 						</tbody>
 					</table>
+
 					<div class="col-md-8 text-center" ng-hide="cars.length > 0">
 						<h3>The parking lot is empty.</h3>
 					</div>
-					<div class="input-group">
-						<input type="text" class="form-control " style="width: 400px" ng-model="car.plate"/>
-						<select class="form-control" style="width: 135px" ng-model="car.color" ng-options="color for color in colors">Pick up</select>
+					<div class="input-group" style="padding-left: 15%;">
+						<input type="text" class="form-control" style="width: 150px" ng-model="car.plate" placeholder="Plate">
+						<select class="form-control" style="width: 100px" ng-model="car.color" ng-options="color for color in colors">
+							<option value="">Color</option>
+						</select>
 						<button class="btn btn-default" ng-click="park(car);newCar()" ng-disabled="!car.plate || !car.color">Park</button>
-						
+						<input type="text" class="form-control" style="width: 100px" ng-model="car.price" placeholder="Price">
 					</div>
 					
 				</div>

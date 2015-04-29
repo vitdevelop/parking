@@ -12,7 +12,7 @@ public class Car {
     private Long id;
 
     @Basic
-    @Column(name = "plate", nullable = false, length = 15)
+    @Column(name = "plate", nullable = false, length = 6)
     private String plate;
 
     @Basic
@@ -24,7 +24,7 @@ public class Car {
     private Date entrace;
 
     @Basic
-    @Column(name = "price",nullable = false,length = 15)
+    @Column(name = "price",nullable = false)
     private int price;
 
 

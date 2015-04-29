@@ -27,4 +27,12 @@ public class CarController {
     public Car insertCar(@RequestBody Car car){
         return carService.saveCar(car);
     }
+
+    @RequestMapping(value = "/{id}",method = RequestMethod.DELETE)
+    public void deleteCar(@PathVariable Long id){
+        if (carService.findCar(id) == null){
+            throw new IllegalStateException("Car with id:"+id+" not found.");
+        }
+        carService.deleteCar(id);
+    }
 }

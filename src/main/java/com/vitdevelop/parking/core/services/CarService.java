@@ -19,10 +19,17 @@ public class CarService {
     public List<Car> getCars(){
         return carInterface.findAll();
     }
+    public Car findCar(Long id){
+        return carInterface.findOne(id);
+    }
 
     public Car saveCar(Car car){
         carInterface.save(car);
         return car;
+    }
+
+    public void deleteCar(Long id){
+        carInterface.delete(id);
     }
 }
 
