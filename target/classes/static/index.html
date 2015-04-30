@@ -20,7 +20,7 @@
 			</div>
 			
 			<div class="row">
-				<div class="col-md-10 col-md-offset-2">
+				<div class="col-md-10 col-md-offset-3">
 					<table class="table table-bordered" style="width: 640px" ng-show="cars.length > 0">
 						<thead>
 							<tr>
@@ -50,7 +50,7 @@
 					<div class="col-md-8 text-center" ng-hide="cars.length > 0">
 						<h3>The parking lot is empty.</h3>
 					</div>
-					<div class="input-group" style="padding-left: 15%;">
+					<div class="input-group" style="padding-left: 10%;">
 						<input type="text" class="form-control" style="width: 150px" ng-model="car.plate" placeholder="Plate">
 						<select class="form-control" style="width: 100px" ng-model="car.color" ng-options="color for color in colors">
 							<option value="">Color</option>
