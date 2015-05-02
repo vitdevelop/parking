@@ -4,7 +4,7 @@
 		<title>Parking</title>
 		<script src="js/lib/lodash.js"></script>
 		<script src="js/lib/angular.js"></script>
-		<script src="js/lib/angular-locale_ro-md.js"></script>
+		<script src="js/lib/angular-locale_en.js"></script>
 		<script src="js/app.js"></script>
 		<script src="js/controller.js"></script>
 		<script src="js/filters.js"></script>
@@ -25,7 +25,6 @@
 					<table class="table table-bordered" style="width: 640px" ng-show="cars.length > 0">
 						<thead>
 							<tr>
-								<th class="text-center"><input type="checkbox"  /></th>
 								<th class="text-center">
 									<a href="" ng-click="field = 'plate'; order=!order">Plate</a>
 								</th>
@@ -38,21 +37,22 @@
 								<th class="text-center">
 									<a href="" ng-click="field = 'price'; order=!order">Price</a>
 								</th>
+								<th class="text-center"></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr ng-class="{selecting: car.selected}" ng-repeat="car in cars|filter:criteria|orderBy:field:order" >
-								<td ng-show="car.selected">
-									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">Delete</button>
-								</td>
-								<td>
-
-									<input type="checkbox" ng-model="car.selected" />
-								</td>
 								<td ng-bind="car.plate|plate_whitespace"></td>
 								<td ng-bind="car.color" ng-style="{color: car.color}"></td>
 								<td ng-bind="car.entrace|date:'dd-MMMM-yyyy HH:mm:ss'"></td>
 								<td ng-bind="car.price|currency:'&euro;'"></td>
+								<td>
+
+									<input type="checkbox" ng-model="car.selected" />
+								</td>
+								<td ng-show="car.selected">
+									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">Delete</button>
+								</td>
 
 							</tr>
 						</tbody>
