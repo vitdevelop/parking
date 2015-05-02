@@ -1,4 +1,8 @@
 # workspace.xml
 .idea/workspace.xml
-#target/*
+
+# target dir
 target
+
+#Jrebel
+.idea/rebel_project.xml
