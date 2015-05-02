@@ -49,7 +49,7 @@
 
 									<input type="checkbox" ng-model="car.selected" />
 								</td>
-								<td ng-bind="car.plate|limitTo:6|uppercase"></td>
+								<td ng-bind="car.plate|plate_whitespace"></td>
 								<td ng-bind="car.color" ng-style="{color: car.color}"></td>
 								<td ng-bind="car.entrace|date:'dd-MMMM-yyyy HH:mm:ss'"></td>
 								<td ng-bind="car.price|currency:'&euro;'"></td>
@@ -61,15 +61,36 @@
 					<div class="col-md-8 text-center" ng-hide="cars.length > 0">
 						<h3>The parking lot is empty.</h3>
 					</div>
-					<div class="input-group" style="padding-left: 10%;">
-						<input type="text" class="form-control" style="width: 150px" ng-model="car.plate" placeholder="Plate">
-						<select class="form-control" style="width: 100px" ng-model="car.color" ng-options="color for color in colors">
-							<option value="">Color</option>
-						</select>
-						<button class="btn btn-default" ng-click="park(car);newCar()" ng-disabled="!car.plate || !car.color">Park</button>
-						<input type="text" class="form-control" style="width: 100px" ng-model="car.price" placeholder="Price">
-					</div>
-					
+					<form name="carForm">
+						<div class="input-group" style="padding-left: 10%;">
+							<input type="text" name="plateField" class="form-control" style="width: 150px" ng-required="true" ng-minlength="6" ng-maxlength="6" ng-pattern="/[A-Z]{3}[0-9]{3,6}/" ng-model="car.plate"  placeholder="Plate">
+							<select class="form-control" style="width: 100px" ng-required="true" ng-model="car.color" ng-options="color for color in colors">
+								<option value="">Color</option>
+							</select>
+							<input type="text" name="priceField" ng-required="true" class="form-control" style="width: 100px" ng-pattern="/[0-9]/" ng-model="car.price" placeholder="Price">
+							<button class="btn btn-default" ng-click="park(car);newCar()" ng-disabled="carForm.$invalid">Park</button>
+						</div>
+						<div class="col-md-6" ng-show="(carForm.plateField.$dirty && carForm.plateField.$invalid) || (carForm.priceField.$dirty && carForm.priceField.$invalid)">
+							<p class="text-danger" ng-show="carForm.plateField.$error.required">
+								You must inform the plate of the car!
+							</p>
+							<p class="text-danger" ng-show="carForm.plateField.$error.minlength">
+								The plate must have at least 6 characters!
+							</p>
+							<p class="text-danger" ng-show="carForm.plateField.$error.maxlength">
+								The plate must have at most 6 characters!
+							</p>
+							<p class="text-danger" ng-show="carForm.plateField.$error.pattern">
+								The plate must start with non-digits, followed by 4 to 6 numbers!
+							</p>
+							<p class="text-danger" ng-show="carForm.priceField.$error.pattern">
+								The plate must start with non-digits!
+							</p>
+
+						</div>
+
+					</form>
+
 				</div>
 					
 			</div>

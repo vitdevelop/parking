@@ -4,6 +4,7 @@ parking.controller("parkingCtrl", function($scope,$http,$filter){
 	$scope.colors = ["White", "Black", "Blue", "Red", "Silver"];
 	$scope.delete_button = false;
 
+
 	$scope.loadCars = function(){
 		$http.get('/cars').success(function(response){
 			$scope.cars = response;
