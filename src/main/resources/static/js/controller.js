@@ -1,5 +1,5 @@
-parking.controller("parkingCtrl", function($scope,$http){
-	$scope.appTitle = "Parking";
+parking.controller("parkingCtrl", function($scope,$http,$filter){
+	$scope.appTitle = $filter("uppercase")("Parking");
 	$scope.cars = [];
 	$scope.colors = ["White", "Black", "Blue", "Red", "Silver"];
 	$scope.delete_button = false;
