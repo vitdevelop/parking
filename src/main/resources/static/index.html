@@ -51,7 +51,10 @@
 									<input type="checkbox" ng-model="car.selected" />
 								</td>
 								<td ng-show="car.selected">
-									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">Delete</button>
+									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">
+										<span class="glyphicon glyphicon-remove"></span>Delete</button>
+									<button class="btn btn-sm btn-primary" ng-click="editCar(car)">
+										<span class="glyphicon glyphicon-pencil"></span>Edit</button>
 								</td>
 
 							</tr>
@@ -68,7 +71,7 @@
 								<option value="">Color</option>
 							</select>
 							<input type="text" name="priceField" ng-required="true" class="form-control" style="width: 100px" ng-pattern="/[0-9]/" ng-model="car.price" placeholder="Price">
-							<button class="btn btn-default" ng-click="park(car);newCar()" ng-disabled="carForm.$invalid">Park</button>
+							<button class="btn btn-default" ng-click="saveCar(car);newCar()" ng-disabled="carForm.$invalid">Park</button>
 						</div>
 						<div class="col-md-6" ng-show="(carForm.plateField.$dirty && carForm.plateField.$invalid) || (carForm.priceField.$dirty && carForm.priceField.$invalid)">
 							<p class="text-danger" ng-show="carForm.plateField.$error.required">

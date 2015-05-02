@@ -11,13 +11,6 @@ parking.controller("parkingCtrl", function($scope,$http,$filter){
 		});
 	};
 
-	$scope.park = function(car) {
-		car.entrace = new Date();
-		$http.put('/cars',car).success(function (response) {
-			$scope.cars.push(car);
-		});
-	};
-
 	$scope.newCar = function () {
 		$scope.car = {
 			id:null,
@@ -35,6 +28,27 @@ parking.controller("parkingCtrl", function($scope,$http,$filter){
 			});
 		});
 	};
+
+	$scope.saveCar = function (car) {
+		if(car.id){
+			$http.put('/cars/'+car.id,car).success(function(response){
+				_.forEach($scope.cars, function(item,index){
+					if(item.id === car.id){
+						$scope.cars[index] == response;
+					}
+				});
+			});
+		}else{
+			car.entrace = new Date();
+			$http.put('/cars',car).success(function (response) {
+				$scope.cars.push(response);
+			});
+		}
+	};
+
+	$scope.editCar = function (car) {
+		$scope.car = car;
+	}
 
 	$scope.loadCars();
 });
