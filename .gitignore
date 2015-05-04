@@ -1,8 +1,8 @@
-# workspace.xml
-.idea/workspace.xml
+# idea
+.idea/
 
 # target dir
 target
 
-#Jrebel
-.idea/rebel_project.xml
+# idea iml
+parking.iml
