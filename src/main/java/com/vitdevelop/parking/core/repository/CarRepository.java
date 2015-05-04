@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * Created by CIC on 27.04.2015.
  */
-public interface CarInterface extends JpaRepository<Car,Long> {
+public interface CarRepository extends JpaRepository<Car,Long> {
     
 }
