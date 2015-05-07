@@ -43,7 +43,7 @@ parking.controller("parkingCtrl", function($scope,$http,$filter){
 
 	$scope.saveCar = function (car) {
 		if(car.id){
-			$http.put('/api/v1.0.0/cars/'+car.id,car).success(function(response){
+			$http.post('/api/v1.0.0/cars/'+car.id,car).success(function(response){
 				_.forEach($scope.cars, function(item,index){
 					if(item.id === car.id){
 						$scope.cars[index] == response;
