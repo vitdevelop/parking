@@ -5,26 +5,26 @@ import java.util.Date;
 
 
 @Entity
-@Table(name = "cars")
+@Table(name = "CARS")
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Basic
-    @Column(name = "plate", nullable = false, length = 6)
+    @Column(name = "PLATE", nullable = false, length = 6)
     private String plate;
 
     @Basic
-    @Column(name = "color", nullable = false, length = 15)
+    @Column(name = "COLOR", nullable = false, length = 15)
     private String color;
 
     @Basic
-    @Column(name = "entrace", nullable = false)
+    @Column(name = "ENTRACE", nullable = false)
     private Date entrace;
 
     @Basic
-    @Column(name = "price",nullable = false)
+    @Column(name = "PRICE",nullable = false)
     private int price;
 
 

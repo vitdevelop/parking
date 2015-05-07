@@ -2,12 +2,7 @@
 <html ng-app="parking">
 	<head>
 		<title>Parking</title>
-		<script src="js/lib/lodash.js"></script>
-		<script src="js/lib/angular.js"></script>
-		<script src="js/lib/angular-locale_en.js"></script>
-		<script src="js/app.js"></script>
-		<script src="js/controller.js"></script>
-		<script src="js/filters.js"></script>
+
 		<link rel="stylesheet" type="text/css" href="styles/css/bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="styles/app.css">
 	</head>
@@ -15,14 +10,19 @@
 		<div class="jumbotron text-center ">
 			<h1 ng-bind="appTitle"></h1>
 			
-			<div class="col-md-4 col-md-offset-4">
-				<input type="text" class="form-control" ng-model="criteria" placeholder="What are you looking for?">
-				<br/>
+
+
+			<div class="col-md-12 text-center" ng-hide="cars.length > 0">
+				<h3>The parking lot is empty.</h3>
 			</div>
 
-			<div class="row">
+			<div class="row" ng-show="cars.length > 0">
+				<div class="col-md-4 col-md-offset-4">
+					<input type="text" class="form-control" ng-model="criteria" placeholder="What are you looking for?">
+					<br/>
+				</div>
 				<div class="col-md-10 col-md-offset-3">
-					<table class="table table-bordered" style="width: 640px" ng-show="cars.length > 0">
+					<table class="table table-bordered" style="width: 640px" >
 						<thead>
 							<tr>
 								<th class="text-center">
@@ -47,10 +47,6 @@
 								<td ng-bind="car.entrace|date:'dd-MMMM-yyyy HH:mm:ss'"></td>
 								<td ng-bind="car.price|currency:'&euro;'"></td>
 								<td>
-
-									<input type="checkbox" ng-model="car.selected" />
-								</td>
-								<td ng-show="car.selected">
 									<button class="btn btn-sm btn-danger" ng-click="deleteCar(car)">
 										<span class="glyphicon glyphicon-remove"></span>Delete</button>
 									<button class="btn btn-sm btn-primary" ng-click="editCar(car)">
@@ -61,9 +57,15 @@
 						</tbody>
 					</table>
 
-					<div class="col-md-8 text-center" ng-hide="cars.length > 0">
-						<h3>The parking lot is empty.</h3>
-					</div>
+
+						<ul class="pagination"  style="padding-right: 44%;" >
+							<li ng-hide="properties.first"><a href ng-click="previousPage()">Previous</a></li>
+							<li ng-repeat="i in []|range:[properties.totalPages]" ng-class="{'active':properties.page == i}"><a href ng-click="loadCars(i)">{{i+1}}</a> </li>
+							<li ng-hide="properties.last"><a href ng-click="nextPage()">Next</a></li>
+						</ul>
+
+
+					<br/>
 					<form name="carForm">
 						<div class="input-group" style="padding-left: 10%;">
 							<input type="text" name="plateField" class="form-control" style="width: 150px" ng-required="true" ng-minlength="6" ng-maxlength="6" ng-pattern="/[A-Z]{3}[0-9]{3,6}/" ng-model="car.plate"  placeholder="Plate">
@@ -99,6 +101,11 @@
 			</div>
 			
 		</div>
-
+		<script src="js/lib/lodash.js"></script>
+		<script src="js/lib/angular.js"></script>
+		<script src="js/lib/angular-locale_en.js"></script>
+		<script src="js/app.js"></script>
+		<script src="js/controller.js"></script>
+		<script src="js/filters.js"></script>
 	</body>
 </html>
