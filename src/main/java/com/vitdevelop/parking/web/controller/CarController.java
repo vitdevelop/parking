@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * Created by CIC on 28.04.2015.
  */
+@Deprecated
 @RestController
 @RequestMapping("/api/v1.0.0/cars")
 public class CarController {
